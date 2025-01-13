@@ -11,6 +11,7 @@ from intermediateCodeFile.intermediateCodeFile import write_IntermediateCode
 from listingFileCreation.combine_and_save_listing import combine_and_save_files
 from helper.printSymbolTable import print_symbol_table
 from helper.displayHelper import display_help
+from helper.headerInfo import print_header_info
 import sys
 
 #-------------------------------------------------------------------------------------------------------
@@ -63,6 +64,7 @@ nm_status = 0
 lst_status = 0
 symTable_status = 0
 int_status = 0
+header_status = 0 
 
 if flags:
 
@@ -78,7 +80,8 @@ if flags:
                 int_status = 1
             elif char == "h":
                  display_help()
-                 exit()
+            elif char == "m":
+                 header_status = 1 
             else:
                 print(f"Error: Invalid flag '{char}'")
                 exit(1)
@@ -152,3 +155,5 @@ if int_status:
     write_IntermediateCode(intermediate_code,intermediate_file)
 if symTable_status:
     print_symbol_table(symbol_table_list)
+if header_status:
+    print_header_info(object_code)
