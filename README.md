@@ -56,6 +56,7 @@ This command will compile all the necessary files and create the final executabl
 │   ├── filterInput.py
 │   ├── opcode_instructions.csv
 │   ├── printSymbolTable.py
+│   ├── headerInfo.py
 │   ├── README.md
 ├── intermediateCodeFile/
 │   ├── intermediateCodeFile.py
@@ -76,6 +77,13 @@ This command will compile all the necessary files and create the final executabl
 │   └── self_nm.py
 └── main.py
 ```
+## Header Structure
+- Total size of header is 8 byte
+- Header has 1) 'Magic no'
+	     2) 'Version'
+	     3) 'Architecture'
+	     4) 'Section Table Offset'
+	     5) 'Section Count '
 
 
 ## `main.py` Overview
@@ -119,6 +127,7 @@ python main.py <file.asm> [-flags]
 - `-l`: Generate the listing file.
 - `-s`: Print the symbol table.
 - `-i`: Write intermediate code to a file.
+- `-m`: Display headerInfo Magic number  information.
 - `-h`: Display help information.
 
 ### Example:
